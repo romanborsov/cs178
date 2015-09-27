@@ -1,0 +1,4 @@
+# Makefile for count threes file (C Version)                          
+# CCSF CS 178 (Build and Release Automation for Software QA
+# Roman Borisov
+# 2015-09-19

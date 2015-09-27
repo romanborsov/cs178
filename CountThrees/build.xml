@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<project name="CountThrees" default="compile" basedir=".">
+<property name="source.dir" location="src"/>
+<property name="build.dir" location="bin"/>
+<property name="doc.dir" location="doc"/>
+
+<target name="init">
+<mkdir dir="${build.dir}"/>
+<mkdir dir="${doc.dir}"/>
+</target>
+
+<target name="compile" depends="init" description="Compile the java code">
+<javac srcdir="${source.dir}" destdir="${build.dir}"/>
+</target>
+
+<target name="doc" depends="init" description="generate documentation">
+<javadoc sourcepath="${source.dir}" destdir="${doc.dir}"/>
+</target>
+
+<!-- test CountThrees -->
+<target name="test" description="test pre-existing CountThrees">
+<java classpath="${build.dir}" classname="CountThrees" fork="true" dir="${build.dir}" />
+</target>
+	
+<!-- Delete the build and doc directories / clean up  -->
+<target name="clean" description="tidy up">
+<delete dir="${build.dir}"/>
+<delete dir="${doc.dir}"/>
+<delete>
+<fileset defaultexcludes="no" dir="${source.dir}" includes="**/*~"/>
+</delete>
+</target>
+
+</project>
